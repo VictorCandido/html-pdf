@@ -5,6 +5,7 @@ const pdfParser = require('pdf-parse');
 const cors = require('cors')
 const express = require('express');
 const crypto = require('crypto')
+const bodyParser = require('body-parser')
 
 // const tmpl1 = fs.readFileSync(require.resolve('./test/template.html'), 'utf8')
 // const tmpl2 = fs.readFileSync(require.resolve('./test/template3.html'), 'utf8')
@@ -12,8 +13,8 @@ const crypto = require('crypto')
 const app = express();
 
 app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.json({ limit: '10mb' }))
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }))
 
 
 app.post('/', (req, res) => {
