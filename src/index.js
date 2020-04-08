@@ -16,70 +16,72 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-app.post('/', (req, res) => {
-    const time = new Date().getTime();
-    const bites = crypto.randomBytes(4).toString('HEX');
-    const name = time + bites;
-    const { finalName = 'teste', templateResumo, templateOrcamentaria } = req.body;
+// app.post('/', (req, res) => {
+//     const time = new Date().getTime();
+//     const bites = crypto.randomBytes(4).toString('HEX');
+//     const name = time + bites;
+//     const { finalName = 'teste', templateResumo, templateOrcamentaria } = req.body;
 
-    const configResumo = { 
-        format: 'A4', 
-        border: '10px' 
-    }
+//     const configResumo = { 
+//         format: 'A4', 
+//         border: '10px' 
+//     }
 
-    let configOrc = { 
-        format: 'A4', 
-        orientation: 'landscape', 
-        border: '10px',
-        header: {
-            height: '15px',
-            contents: ``,
-        },
-        footer: {
-            height: "10px",
-            contents: ''
-        }
-    }
+//     let configOrc = { 
+//         format: 'A4', 
+//         orientation: 'landscape', 
+//         border: '10px',
+//         header: {
+//             height: '15px',
+//             contents: ``,
+//         },
+//         footer: {
+//             height: "10px",
+//             contents: ''
+//         }
+//     }
 
-    pdf.create(templateResumo, configResumo).toFile(__dirname + `/temp/${name}1.pdf`, async function (err, resResumo) {
-        if (err) {
-            return console.log(err)
-        } 
-        console.log('sucesso no primeiro', resResumo);
+//     pdf.create(templateResumo, configResumo).toFile(__dirname + `/temp/${name}1.pdf`, async function (err, resResumo) {
+//         if (err) {
+//             return console.log(err)
+//         } 
+//         console.log('sucesso no primeiro', resResumo);
 
-        const { filename: fileResumo } = resResumo
+//         const { filename: fileResumo } = resResumo
 
-        const pdf1 = fs.readFileSync(require.resolve(fileResumo));
-        const data = await pdfParser(pdf1);
+//         const pdf1 = fs.readFileSync(require.resolve(fileResumo));
+//         const data = await pdfParser(pdf1);
     
-        configOrc.footer.paginationOffset = data.numpages;
+//         configOrc.footer.paginationOffset = data.numpages;
     
-        pdf.create(templateOrcamentaria, configOrc).toFile(__dirname + `/temp/${name}2.pdf`, function (err, resOrc) {
-            if (err) {
-                return console.log(err)
-            }       
-            console.log('sucesso no segundo', resOrc);
+//         pdf.create(templateOrcamentaria, configOrc).toFile(__dirname + `/temp/${name}2.pdf`, function (err, resOrc) {
+//             if (err) {
+//                 return console.log(err)
+//             }       
+//             console.log('sucesso no segundo', resOrc);
 
-            const { filename: fileOrc } = resOrc;
+//             const { filename: fileOrc } = resOrc;
     
-            const fileUrl = __dirname + `/temp/${name}final.pdf`;
+//             const fileUrl = __dirname + `/temp/${name}final.pdf`;
     
-            merge([fileResumo, fileOrc], fileUrl, err => {
-                if (err) {
-                    return console.log(err)
-                }   
-                console.log('Success Final')
-                res.download(fileUrl, `${finalName}.pdf`);
+//             merge([fileResumo, fileOrc], fileUrl, err => {
+//                 if (err) {
+//                     return console.log(err)
+//                 }   
+//                 console.log('Success Final')
+//                 res.download(fileUrl, `${finalName}.pdf`);
                 
-                setTimeout(() => {
-                    fs.unlink(fileResumo, () => console.log('ok'))
-                    fs.unlink(fileOrc, () => console.log('ok'))
-                    fs.unlink(fileUrl, () => console.log('ok'))
-                }, 2000);
-            })
+//                 setTimeout(() => {
+//                     fs.unlink(fileResumo, () => console.log('ok'))
+//                     fs.unlink(fileOrc, () => console.log('ok'))
+//                     fs.unlink(fileUrl, () => console.log('ok'))
+//                 }, 2000);
+//             })
     
-        });
-    });
-})
+//         });
+//     });
+// })
+
+app.get('/', (req, res) => res.send('salve'))
 
 app.listen(3333, () => console.log('server online! Listening on port 3333'))
