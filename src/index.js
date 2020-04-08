@@ -82,4 +82,4 @@ app.post('/', (req, res) => {
     });
 })
 
-app.listen(3333)
+app.listen(3333, () => console.log('server online! Listening on port 3333'))
