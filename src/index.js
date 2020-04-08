@@ -24,8 +24,8 @@ app.post('/', (req, res) => {
     const { finalName = 'teste', templateResumo, templateOrcamentaria } = req.body;
 
     // console.log('body', body)
-    console.log('templateResumo', body.templateResumo)
-    console.log('templateOrcamentaria', body.templateOrcamentaria)
+    console.log('templateResumo', templateResumo)
+    console.log('templateOrcamentaria', templateOrcamentaria)
 
     const configResumo = { 
         format: 'A4', 
