@@ -1,4 +1,5 @@
-const merge = require('easy-pdf-merge')
+// const merge = require('easy-pdf-merge')
+var merge = require(path.join(__dirname, '/../app.asar.unpacked/node_modules/easy-pdf-merge'));
 const fs = require('fs')
 const pdf = require('html-pdf');
 const pdfParser = require('pdf-parse');
