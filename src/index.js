@@ -55,7 +55,9 @@ app.post('/', (req, res) => {
         const { filename: fileResumo } = resResumo
 
         const pdf1 = fs.readFileSync(require.resolve(fileResumo));
+        console.log('pdf1', pdf1)
         const data = await pdfParser(pdf1);
+        console.log('data', data)
     
         configOrc.footer.paginationOffset = data.numpages;
     
@@ -89,4 +91,4 @@ app.post('/', (req, res) => {
 
 // app.get('/', (req, res) => res.send('salve'))
 
-app.listen(process.env.PORT || 3333, () => console.log('server online! Listening on port ' + process.env.PORT || 3333))
+app.listen(3333, () => console.log('server online! Listening on port ' + 3333))
