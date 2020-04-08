@@ -23,6 +23,7 @@ app.post('/', (req, res) => {
     const name = time + bites;
     const { finalName = 'teste', templateResumo, templateOrcamentaria } = req.body;
 
+    console.log('req.body', req.body)
     console.log(templateResumo)
     console.log(templateOrcamentaria)
 
