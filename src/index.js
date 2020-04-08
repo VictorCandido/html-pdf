@@ -21,15 +21,9 @@ app.post('/', (req, res) => {
     const time = new Date().getTime();
     const bites = crypto.randomBytes(4).toString('HEX');
     const name = time + bites;
-    const { finalName = 'teste' } = req.body;
+    const { finalName = 'teste', templateResumo, templateOrcamentaria } = req.body;
 
-    const body = req.body
-
-
-    // const templateResumo = req.body.templateResumo
-    // const templateOrcamentaria = req.body.templateOrcamentaria;
-
-    console.log('body', body)
+    // console.log('body', body)
     console.log('templateResumo', body.templateResumo)
     console.log('templateOrcamentaria', body.templateOrcamentaria)
 
