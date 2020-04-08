@@ -22,12 +22,16 @@ app.post('/', (req, res) => {
     const bites = crypto.randomBytes(4).toString('HEX');
     const name = time + bites;
     const { finalName = 'teste' } = req.body;
-    const templateResumo = req.body.templateResumo
-    const templateOrcamentaria = req.body.templateOrcamentaria;
 
-    // console.log('req.body', req.body)
-    console.log(templateResumo)
-    console.log(templateOrcamentaria)
+    const body = req.body
+
+
+    // const templateResumo = req.body.templateResumo
+    // const templateOrcamentaria = req.body.templateOrcamentaria;
+
+    console.log('body', body)
+    console.log('templateResumo', body.templateResumo)
+    console.log('templateOrcamentaria', body.templateOrcamentaria)
 
     const configResumo = { 
         format: 'A4', 
