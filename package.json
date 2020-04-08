@@ -18,5 +18,11 @@
     "html-pdf": "^2.2.0",
     "node-html-parser": "^1.2.14",
     "pdf-parse": "^1.1.1"
+  },
+  "build": {
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/easy-pdf-merge/**/*"
+    ]
   }
 }

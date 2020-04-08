@@ -71,7 +71,7 @@ app.post('/', (req, res) => {
     
             const fileUrl = __dirname + `/temp/${name}final.pdf`;
     
-            merge([fileResumo, fileOrc], fileUrl, err => {
+            merge([__dirname + `/temp/${name}1.pdf`, __dirname + `/temp/${name}2.pdf`], fileUrl, err => {
                 if (err) {
                     return console.log(err)
                 }   
