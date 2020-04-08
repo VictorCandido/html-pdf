@@ -1,0 +1,20 @@
+{
+  "name": "merge_pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "easy-pdf-merge": "^0.2.2",
+    "express": "^4.17.1",
+    "html-pdf": "^2.2.0",
+    "node-html-parser": "^1.2.14",
+    "pdf-parse": "^1.1.1"
+  }
+}

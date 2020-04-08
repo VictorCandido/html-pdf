@@ -1,0 +1,4 @@
+node_modules
+src/test
+src/temp
+!src/temp/.gitkeep
