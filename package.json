@@ -15,7 +15,7 @@
     "cors": "^2.8.5",
     "easy-pdf-merge": "^0.2.2",
     "express": "^4.17.1",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "node-html-parser": "^1.2.14",
     "pdf-parse": "^1.1.1"
   },
